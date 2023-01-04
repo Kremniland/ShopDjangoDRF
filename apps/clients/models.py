@@ -13,10 +13,12 @@ class Client(models.Model):
     discount_type = models.CharField(choices=BENEFIT, max_length=10)
     address = models.CharField(max_length=150)
 
-    # def __str__(self):
-    #     '''Вернет user + email'''
-    #     email = User.objects.get(pk=self.user.pk).email
-    #     return f'{self.user} - {email}'
+    def email_field(self):
+        '''При обращении к email_field вернет email User'''
+        return User.objects.get(pk=self.user.pk).email
+
+    def __str__(self):
+        return f'{self.user}'
 
     class Meta:
         verbose_name = 'Клиент'
