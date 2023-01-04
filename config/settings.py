@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'debug_toolbar',
+    'versatileimagefield',
 
     'apps.clients',
     'apps.shop',
@@ -49,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -127,3 +131,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Для вывода ORM запросов в консоль
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {'class': 'logging.StreamHandler'},
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+            }
+        }
+}
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

@@ -5,5 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('clients/', include('apps.clients.urls')),
     path('shop/', include('apps.shop.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 
 ]
