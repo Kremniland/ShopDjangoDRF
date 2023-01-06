@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'debug_toolbar',
     'versatileimagefield',
+    'rest_framework.authtoken', # Для использования стандартной библиотеки авторизации по токенам
+    'djoser',
 
     'apps.clients',
     'apps.shop',
@@ -153,6 +155,15 @@ LOGGING = {
         }
 }
 
+# Для Django Debug Toolbar
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication', # На основе токенов для Djoser
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication' # Для session
+    ],
+}
