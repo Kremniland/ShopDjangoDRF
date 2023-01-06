@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'versatileimagefield',
     'rest_framework.authtoken', # Для использования стандартной библиотеки авторизации по токенам
     'djoser',
+    'drf_yasg',
 
     'apps.clients',
     'apps.shop',
+    'apps.backend',
 ]
 
 MIDDLEWARE = [

@@ -5,7 +5,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-from .models import Client
+from clients.models import Client
 from .serializers import ClientSerializer
 
 
@@ -18,7 +18,7 @@ class ClientViewSet(ReadOnlyModelViewSet):
     #              .only('user','user__email',)))
     serializer_class = ClientSerializer
     # Для авторизованных пользователей
-    # permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     # Только по токенам досуп
-    # authentication_classes = (TokenAuthentication, )
+    authentication_classes = (TokenAuthentication, )
 
