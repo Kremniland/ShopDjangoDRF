@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     'apps.clients',
     'apps.shop',
-    'apps.backend',
+
 ]
 
 MIDDLEWARE = [
