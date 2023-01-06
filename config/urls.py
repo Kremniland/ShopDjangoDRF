@@ -42,10 +42,10 @@ urlpatterns = [
 
 ]
 
-router = routers.DefaultRouter()
-router.register(r'api/clients', ClientViewSet)
-
-urlpatterns += router.urls
+# router = routers.DefaultRouter()
+# router.register(r'api/clients', ClientViewSet)
+#
+# urlpatterns += router.urls
 
 # Для статики:
 if settings.DEBUG:
